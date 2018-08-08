@@ -37,27 +37,8 @@
 					<label>Test date due</label>
 					<input id="due" name="due" type="date" class="w3-input">
 				</div>
-				<button onclick="handleFormSubmit()">Send</button>
+				<button>Send</button>
 			</form>
 		</div>
-		<script type="text/javascript">
-			/*var inputElement = document.createElement('input');
-			inputElement.type = "button";
-			inputElement.value = "Get";
-			inputElement.addEventListener('click', function(){
-			    submit();
-			});
-			document.body.appendChild(inputElement);*/
-
-	        function handleFormSubmit(){
-	            var app = event.target.action;
-	            var xhr = new XMLHttpRequest();
-			    xhr.open('POST', app);
-			    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
-			    xhr.send(document.getElementById("url").value);
-			    //alert("The server responded with: " + xhr.response);
-			}
-	    </script>
-	<!--https://script.google.com/a/qnap.com/macros/s/AKfycbyqVDTmPodvrRGUkhDO-lVBckwqlVOSHjkKLY-tx0s2ZUBCpVEx/exec-->
 	</body>
 </html>
