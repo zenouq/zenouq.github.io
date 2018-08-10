@@ -44,6 +44,9 @@
 			var start_date = null;
 			var due_date = null;
 			var url_valid = false;
+			check_url();
+			check_start();
+			check_due();
 			document.getElementById("submit").disabled = true;
 			document.getElementById("start").onchange = function() {
   				check_start();
@@ -57,65 +60,46 @@
 
 			function check_url()
 			{
+				document.getElementById("submit").disabled = true;
 				if (document.getElementById("url").value.startsWith("https://docs.google.com/spreadsheets/d/"))
 				{	
 					url_valid = true;
 					if (start_date != null && due_date != null && start_date < due_date)
 						document.getElementById("submit").disabled = false;
-				}
-				else
-					document.getElementById("submit").disabled = true;
+				}	
 			}
 
 			function check_start()
 			{
+				document.getElementById("submit").disabled = true;
 				if(Date.parse(document.getElementById("start").value) > new Date())
-  				{	
-  					document.getElementById("submit").disabled = true;
   					alert("No report for future!");
-  				}
   				else
   				{
   					start_date = Date.parse(document.getElementById("start").value);
   					if (due_date != null)
   						if (due_date < start_date)
-  						{
-  							document.getElementById("submit").disabled = true;
   							alert("How can you go back time?");
-  						}
   						else
   							if (url_valid)
   								document.getElementById("submit").disabled = false;
-  							else
-  								document.getElementById("submit").disabled = true;
-  					else
-  						document.getElementById("submit").disabled = true;
-  				}
+				}
 			}
 
 			function check_due()
 			{
+				document.getElementById("submit").disabled = true;
 				if(Date.parse(document.getElementById("due").value) > new Date())
-  				{	
-  					document.getElementById("submit").disabled = true;
   					alert("Finish your work!");
-  				}
   				else
   				{
   					due_date = Date.parse(document.getElementById("due").value);
   					if (start_date != null)
   						if (due_date < start_date)
-  						{	
-  							document.getElementById("submit").disabled = true;
   							alert("How can you go back time?");
-  						}
   						else
   							if (url_valid)
   								document.getElementById("submit").disabled = false;
-  							else
-  								document.getElementById("submit").disabled = true;
-  					else
-  						document.getElementById("submit").disabled = true;
   				}
 			}
 		</script>
