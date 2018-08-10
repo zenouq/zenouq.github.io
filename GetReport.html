@@ -44,10 +44,12 @@
 			var start_date = null;
 			var due_date = null;
 			var url_valid = false;
+			document.getElementById("submit").disabled = true;
+			
 			check_url();
 			check_start();
 			check_due();
-			document.getElementById("submit").disabled = true;
+			
 			document.getElementById("start").onchange = function() {
   				check_start();
 			}
