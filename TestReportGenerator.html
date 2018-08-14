@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<style>
+			.center {
+			    margin: auto;
+			    width: 60%;
+			    padding: 10px;
+			}
+			label{
+				color: #bf2f50;
+				line-height: 1.6;
+				font-size: 20px;
+			}
+			button{
+				margin-left: 35%;
+				margin-top: 5%;
+			    width: 30%;
+			    padding: 10px;
+			    float: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="center">
+			<form class="gform pure-form pure-form-stacked" method="POST" action="https://script.google.com/a/qnap.com/macros/s/AKfycbw9FczEUUuFzQqaA-dHqvgfo33GTktKtRIpkqbSGQ/exec">
+				<div>
+					<label>DOCs url go here</label>
+					<input id="url" name="url" class="w3-input">
+				</div>
+				<div>
+					<label>Test date start</label>
+					<input id="start" name="start" type="date" class="w3-input">
+				</div>
+				<div>
+					<label>Test date due</label>
+					<input id="due" name="due" type="date" class="w3-input">
+				</div>
+				<button id="submit" onclick="handleFormSubmit()">Send</button>
+			</form>
+		</div>
+		<script type="text/javascript">
+			var start_date = null;
+			var due_date = null;
+			var url_valid = false;
+			document.getElementById("submit").disabled = true;
+			
+			check_url();
+			check_start();
+			check_due();
+			
+			document.getElementById("start").onchange = function() {
+  				check_start();
+			}
+			document.getElementById("due").onchange = function() {
+  				check_due();
+			}
+			document.getElementById("url").onchange = function() {
+				check_url();
+			}
+			function check_url()
+			{
+				document.getElementById("submit").disabled = true;
+				if (document.getElementById("url").value.startsWith("https://docs.google.com/spreadsheets/d/"))
+				{	
+					url_valid = true;
+					if (start_date != null && due_date != null && start_date < due_date)
+						document.getElementById("submit").disabled = false;
+				}	
+			}
+			function check_start()
+			{
+				document.getElementById("submit").disabled = true;
+				if(Date.parse(document.getElementById("start").value) > new Date())
+  					alert("No report for future!");
+  				else
+  				{
+  					start_date = Date.parse(document.getElementById("start").value);
+  					if (due_date != null)
+  						if (due_date < start_date)
+  							alert("How can you go back time?");
+  						else
+  							if (url_valid)
+  								document.getElementById("submit").disabled = false;
+				}
+			}
+			function check_due()
+			{
+				document.getElementById("submit").disabled = true;
+				if(Date.parse(document.getElementById("due").value) > new Date())
+  					alert("Finish your work!");
+  				else
+  				{
+  					due_date = Date.parse(document.getElementById("due").value);
+  					if (start_date != null)
+  						if (due_date < start_date)
+  							alert("How can you go back time?");
+  						else
+  							if (url_valid)
+  								document.getElementById("submit").disabled = false;
+  				}
+			}
+		</script>
+	</body>
+</html>
