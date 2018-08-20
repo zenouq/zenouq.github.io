@@ -60,6 +60,10 @@
 				}
 			}
 			
+			while(week == day.getWeek())
+				day.setDate(day.getDate() - 1);
+			day.setDate(day.getDate() + 1);
+			
 			var start_date = null;
 			var due_date = null;
 			var url_valid = false;
@@ -68,7 +72,7 @@
 			var today = new Date();
 			document.getElementById("due").valueAsDate = today;
 			today.setMonth(today.getMonth() - 1);
-			document.getElementById("start").valueAsDate = today;
+			document.getElementById("start").valueAsDate = day;
 
 			check_url();
 			check_start();
