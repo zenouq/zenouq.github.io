@@ -41,6 +41,25 @@
 			</form>
 		</div>
 		<script type="text/javascript">
+			Date.prototype.getWeek = function() {
+				var onejan = new Date(this.getFullYear(),0,1);
+  				return Math.ceil((((this - onejan) / 86400000) + onejan.getDay()+1)/7);
+			};
+			var day = new Date();
+			var week = day.getWeek();
+			var count_day = 0;
+			while(count_day < 5)
+			{
+				day.setDate(day.getDate() - 1);
+				if(week == day.getWeek())
+					count_day++;
+				else
+				{
+					week = day.getWeek();
+					count_day = 0;
+				}
+			}
+			
 			var start_date = null;
 			var due_date = null;
 			var url_valid = false;
