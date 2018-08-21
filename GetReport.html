@@ -20,11 +20,17 @@
 			    padding: 10px;
 			    float: none;
 			}
+			select
+			{
+				margin-left: 42.5%;
+				margin-top: 1%;
+				width: 10%;
+			}
 		</style>
 	</head>
 	<body>
 		<div class="center">
-			<form class="gform pure-form pure-form-stacked" method="POST" action="https://script.google.com/a/qnap.com/macros/s/AKfycbw9FczEUUuFzQqaA-dHqvgfo33GTktKtRIpkqbSGQ/exec">
+			<form class="gform pure-form pure-form-stacked" method="POST" action="https://script.google.com/a/qnap.com/macros/s/AKfycbyqVDTmPodvrRGUkhDO-lVBckwqlVOSHjkKLY-tx0s2ZUBCpVEx/exec">
 				<div>
 					<label>DOCs url go here</label>
 					<input id="url" name="url" class="w3-input">
@@ -36,6 +42,12 @@
 				<div>
 					<label>Test date due</label>
 					<input id="due" name="due" type="date" class="w3-input">
+				</div>
+				<div>
+					<select id="version" name="version" >
+						<option value="2.0">2.0.0</option>
+						<option value="2.1">2.1.0</option>
+					</select>
 				</div>
 				<button id="submit" onclick="handleFormSubmit()">Send</button>
 			</form>
