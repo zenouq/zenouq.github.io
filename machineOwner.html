@@ -4,21 +4,13 @@
   <div class="center">
       <form  id="form" class="gform pure-form pure-form-stacked" method="POST" action="https://script.google.com/a/qnap.com/macros/s/AKfycbwPNcKEqjAow0WBRYp6MARhJoSPNONPLzNMih4XXa4KfZ35mMk/exec">
         <div>
-          <label>DOCs url go here</label>
           <input id="url" name="url" class="w3-input">
-        </div>
-        <div>
-          <label>Test date start</label>
-          <input id="start" name="start" type="date" class="w3-input">
-        </div>
-        <div>
-          <label>Test date due</label>
-          <input id="due" name="due" type="date" class="w3-input">
         </div>
         <button>Send</button>
       </form>
     </div>
     <script type="text/javascript">
+      document.getElementById("url").style.display = "none";
       document.forms["form"].submit();
     </script>
 </body>
