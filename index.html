@@ -1,25 +1,77 @@
-<!DOCTYPE html>
 <html>
-<body>
-  <div class="center">
-      <form  id="form" class="gform pure-form pure-form-stacked" method="POST" action="https://script.google.com/a/qnap.com/macros/s/AKfycbw9FczEUUuFzQqaA-dHqvgfo33GTktKtRIpkqbSGQ/exec">
-        <div>
-          <label>DOCs url go here</label>
-          <input id="url" name="url" class="w3-input">
-        </div>
-        <div>
-          <label>Test date start</label>
-          <input id="start" name="start" type="date" class="w3-input">
-        </div>
-        <div>
-          <label>Test date due</label>
-          <input id="due" name="due" type="date" class="w3-input">
-        </div>
-        <button>Send</button>
-      </form>
-    </div>
-    <script type="text/javascript">
-      document.forms["form"].submit();
-    </script>
-</body>
+	<head>
+		<title>Tools</title>
+		<!--Style from w3school-->
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+		<style type="text/css">
+			.center{
+				margin-top: 5%;
+				margin-left: 30%;
+				width: 60%;
+			    padding: 10px;
+			}
+			.button {
+			    background-color: #4CAF50; /* Green */
+			    border: none;
+			    color: white;
+			    padding: 16px 32px;
+			    text-align: center;
+			    text-decoration: none;
+			    display: inline-block;
+			    font-size: 30px;
+			    margin: 4px 2px;
+			    -webkit-transition-duration: 0.4s; /* Safari */
+			    transition-duration: 0.4s;
+			    cursor: pointer;
+			}
+			.button_green {
+			    background-color: white; 
+			    color: black; 
+			    border: 2px solid #4CAF50;
+			}
+
+			.button_green:hover {
+			    background-color: #4CAF50;
+			    color: white;
+			}
+			.button_blue {
+			    background-color: white; 
+			    color: black; 
+			    border: 2px solid #1744e6;
+			}
+
+			.button_blue:hover {
+			    background-color: #1744e6;
+			    color: white;
+			}
+			.button_purple {
+				width: 235px;
+				margin-left: 5%;
+			    background-color: white; 
+			    color: black; 
+			    border: 2px solid #b317e6;
+			}
+
+			.button_purple:hover {
+			    background-color: #b317e6;
+			    color: white;
+			}
+			/*free background from https://www.pexels.com/search/desktop%20wallpaper/*/
+			body{
+			    background-image: url("img/code-coding-computer-92905.jpg");
+			    background-repeat: no-repeat;
+			    background-attachment: fixed;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div class="center">
+			<button class="button button_green" onclick="location.href='https://zenouq.github.io/TestReportGenerator'">Test Report<br>Generator</button>
+		</div>
+		<div class="center">
+			<button class="button button_blue" onclick="location.href='https://zenouq.github.io/weeksum'">Week Bugs<br>Summary</button>
+			<button class="button button_purple" onclick="location.href='https://zenouq.github.io/machineOwner'">Machine<br>Statistics</button>
+		</div>
+	</body>
 </html>
